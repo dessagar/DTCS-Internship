@@ -1,0 +1,36 @@
+.chat-wrap
+{
+    border-right: 1px solid #dee2e6;
+
+    @media screen and (max-width: 767px) 
+    {
+        border-bottom: 1px solid #dee2e6;
+        border-right: none;
+    }
+}
+
+.chat-ques
+{
+    background: #e20074;
+    border-radius: 15px;
+    color: #fff;
+}
+.chat-reply
+{
+    background: #c0c0c0;
+    border-radius: 15px;
+}
+
+.query-sec
+{
+background: #eaeaea;
+border-radius: 15px;
+}
+
+.unanswer-sec
+{
+    background: #ffd6ea;
+    border-radius: 15px;
+}
+
+

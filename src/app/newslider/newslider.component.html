@@ -1,0 +1,184 @@
+<!-- create-slide.component.html -->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="page-wrapper">
+    <div class="sidebar position-relative">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="" class="navbar-brand my-4 ms-3"><img _ngcontent-upr-c1="" src="../assets/company-logo.png"
+                        alt="Company Logo"></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navigationBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigationBar">
+                    <ul class="navbar-nav navigation-top-link">
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../Admin_dashboardComponent"><i class="bi bi-house-door me-3"></i><span>Dashboard</span></a>
+                        </li>
+
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-bug  me-3"></i><span>Forum</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-grid  me-3"></i><span>Library</span> </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-people  me-3"></i><span>My Profile</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../askme"><i class="bi bi-question-circle  me-3"></i><span>Ask me</span></a>
+                        </li>
+
+
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-gear  me-3"></i><span>Settings</span></a>
+                        </li>
+                     
+                    </ul>
+                    <ul class="navbar-nav d-flex">
+                        <!-- Other sidebar items -->
+                      
+                        <li class="nav-item mb-2">
+                          <a href="javascript:void(0);" class="nav-link" >
+                            <!-- <i class="bi bi-box-arrow-right me-3"></i> -->
+                            <!-- Logout -->
+                          </a>
+                        </li>
+                      </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <div class="outer-content-wrapper">
+        <div class="top-header py-2 pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5 offset-md-7">
+                        <div class="d-flex">
+                            <div class="input-group me-3">
+                                <input type="text" class="form-control common-form-control" placeholder="Search Here">
+                                <button type="button" class="btn btn-primary search-btn"><i class="bi bi-search"></i></button>
+                            </div>
+
+                            <div class="list-group list-group-horizontal list-group-flush">
+                                <a class="list-group-item list-group-action me-2 px-3" href="#"><i class="bi bi-bell"></i></a>
+                                <a class="list-group-item list-group-action mx-2 px-3" href="#"><i class="bi bi-person"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="dashboard-fliter py-2 px-4">
+            <div class="container-fluid">
+          
+            </div>
+        </div>
+
+        <div class="inner-content-wrapper pt-4 pb-3 px-4 containerbg">
+            <div class="container-fluid ">
+<div class="row">
+   
+    <div class="col-md-10 offset-md-1"> 
+                <div class="knowledge-wrapper pt-3 ">
+                    <h2 class="pink">Create Slide</h2>
+                    <div *ngIf="slideSuccess" class="alert" [class.alert-success]="!isEditing" [class.alert-info]="isEditing" role="alert">
+                      {{ isEditing ? 'Slide updated successfully!' : 'Slide added successfully!' }}
+                    </div>
+                    <div *ngIf="slideDeleted" class="alert alert-success" role="alert">
+                      Slide deleted successfully!
+                    </div>
+
+                    <form [formGroup]="slideForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                          <label for="title" class="form-label pink">Title</label>
+                          <input type="text" class="form-control" id="title" formControlName="title" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="subtitle" class="form-label pink">Subtitle</label>
+                          <input type="text" class="form-control" id="subtitle" formControlName="subtitle">
+                        </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label pink">Description</label>
+                          <input type="text" class="form-control" id="description" formControlName="description">
+                        </div>
+                        <div class="mb-3">
+                          <label for="image" class="form-label pink">Image</label>
+                          <input type="file" class="form-control" id="image" (change)="onImageChange($event)" accept="image/*">
+                      </div>
+                      
+                      <div *ngIf="slideForm.get('image')?.value" style="display: flex; align-items: center;">
+                        <p style="margin-right: 10px;">{{ slideForm.get('image')?.value }}</p>
+                        <i class="fas fa-trash-alt btndel" (click)="onDeleteImageClick(slideForm.get('image')?.value)"></i>
+                    </div>
+                
+                        <div class="mb-3">
+                          <label for="videos" class="form-label pink" style="margin-right: 20px;">Videos</label>        
+                          <!-- FormArray for External Videos -->
+                          <div formArrayName="externalVideos">
+                          <button type="button" class="btn btn-success mb-2 " (click)="addExternalVideo()">Add External Video</button>
+                            <div *ngFor="let video of externalVideos.controls; let i = index" class="mb-2">
+                              <div [formGroupName]="i" class="input-group">
+                                <input type="text" class="form-control" formControlName="videoTitle" placeholder="Video Title" required>
+                                <input type="text" class="form-control" formControlName="videoDescription" placeholder="Video Description">
+                                <input type="text" class="form-control" formControlName="youtubeUrl" placeholder="YouTube Video URL">
+                                <button type="button" class="btn btn-danger" style="height: 9%;" (click)="removeVideo('externalVideos', i)"><i class="fas fa-trash-alt"></i></button>
+                              </div>
+                            </div>
+                          </div>    
+                        
+                        <!-- FormArray for Internal Videos -->
+                <div formArrayName="internalVideos">
+                  <button type="button" class="btn btn-success mb-2" (click)="addInternalVideo()">Add Internal Video</button>
+                  <div *ngFor="let video of internalVideos.controls; let i = index" class="mb-2">
+                    <div [formGroupName]="i" class="input-group">
+                      <input type="text" class="form-control" formControlName="videoTitle" placeholder="Video Title" required>
+                      <input type="text" class="form-control" formControlName="videoDescription" placeholder="Video Description">
+                      <input type="file" class="form-control" id="video" formControlName="localVideoFile" (change)="onVideoChange($event,i)" accept="video/*">
+                      <button type="button" class="btn btn-danger" style="height: 9%;" (click)="removeVideo('internalVideos', i)"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                        <button type="submit" class="btn btn-primary btn-xl">
+                          {{ isEditing ? 'Update' : 'Submit' }}
+                        </button>
+                      </form>
+                
+
+
+                      <div class="mt-4" *ngIf="slides.length > 0 && lName">
+                        <h3>All Slides</h3>
+                        <ul class="list-group" *ngFor="let slide of slides; let i = index">
+                          <li class="list-group-item" style="height: 50px;" *ngIf="slide.labelname === lName">
+                            <ng-container >
+                              <div class="d-flex align-items-center">
+                                <!-- Clickable title to show details -->
+                                <span style="flex-grow: 1; cursor: pointer;" (click)="showSlideDetails(slide)">
+                                  {{ slide.title }}
+                                </span>
+                                <!-- Button to edit the slide -->
+                                <i class="fas fa-edit btnedit" (click)="onSlideTitleClick(slide)"></i>
+                                <!-- Button to delete the slide -->
+                                <i class="fas fa-trash-alt btndel" *ngIf="!isEditing" (click)="deleteSlide(slide._id, i)"></i>
+                              </div>
+                            </ng-container>
+                          </li>
+                          
+                        </ul>
+                        <p *ngIf="slides.length === 0">No slides to show</p>
+                      </div>
+                      
+                      
+                
+                        
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+     
+    </div>
+</div>

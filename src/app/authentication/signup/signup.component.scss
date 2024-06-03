@@ -1,0 +1,85 @@
+
+
+  
+  .login-card-inner-wrapper {
+    z-index: 1;
+    align-items: center;
+    height: 100vh;
+  
+    .login-card-wrapper {
+      box-shadow: 0 3px 20px 2px rgba(0, 0, 0, 0.08);
+      padding: 15px;
+      background: #fff;
+      z-index: 1;
+  
+      .login-logo-wrapper {
+        background: url("../../../assets/authentication.jpg");
+        height: 100%;
+        background-size: cover;
+  
+        .login-logo-inner-wrapper {
+          background: rgb(0 0 0 / 44%);
+          width: 100%;
+          height: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 80px;
+          }
+        }
+      }
+  
+      .login-form-wrapper {
+        padding: 3rem;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 80px;
+          height: 6px;
+          background: #e20074;
+          top: -15px;
+          right: calc(50% - 40px);
+        }
+
+  
+        .login-title {
+          margin-bottom: 5rem;
+          font-size: 2.2rem;
+          font-weight: 600;
+        }
+        .login-btn {
+          background: #e20074;
+          border: 1px solid #e20074;
+          height: 50px;
+          font-size: 20px;
+          font-weight: 600;
+          transition-duration: 1s;
+        &:active,
+        &:focus,
+       &:hover {
+          background: #fff;
+          border: 2px solid #e20074;
+          color: #e20074;
+        }
+        }
+        
+        .signup-link {
+          text-decoration: none;
+          color: #e20074;
+          font-weight: 600;
+        }
+        .signup-link:active,
+        .signup-link:focus,
+        .signup-link:hover {
+          color: #ae1463;
+        }
+      }
+    }
+}
+  
+
+
+
+

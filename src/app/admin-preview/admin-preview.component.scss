@@ -1,0 +1,47 @@
+.knowledge-wrapper
+{
+    height: calc(100vh - 270px);
+    overflow-y: auto;
+    .card
+    {
+        border: none;
+        box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05);
+        border-left: 3px solid #e20086;
+        border-radius: 0px;
+        cursor: pointer;
+        
+    }
+}
+
+
+.dashboard-fliter
+{
+    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 4%);
+    background: #fff;
+}
+
+.dashboard-footer
+{      
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    height: 70px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.17);
+    left: 0;
+}
+.disabled-card {
+    opacity: 0.6; // Example: reduce opacity for a disabled look
+    cursor: not-allowed; // Change the cursor to a disabled pointer
+    // Add any other styles to visually indicate that the card is disabled
+  }
+
+.container{
+
+    max-height: 600px; /* Set the maximum height for the container */
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+    margin-top: 40px;
+}

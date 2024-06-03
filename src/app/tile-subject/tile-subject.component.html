@@ -1,0 +1,170 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="page-wrapper">
+    <div class="sidebar position-relative">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="" class="navbar-brand my-4 ms-3"><img _ngcontent-upr-c1="" src="../assets/company-logo.png"
+                        alt="Company Logo"></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navigationBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigationBar">
+                    <ul class="navbar-nav navigation-top-link">
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../Admin_dashboardComponent"><i class="bi bi-house-door me-3"></i><span>Dashboard</span></a>
+                        </li>
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../admin_subject"><i
+                                    class="bi bi-speedometer2  me-3"></i><span>Subject</span></a>
+                        </li> -->
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-bug  me-3"></i><span>Forum</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-grid  me-3"></i><span>Library</span> </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-people  me-3"></i><span>My Profile</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../askme"><i class="bi bi-question-circle  me-3"></i><span>Ask me</span></a>
+                        </li>
+
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../chatbot"><i class="bi bi-question-circle  me-3"></i><span>Chat</span></a>
+                        </li> -->
+
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../chatQuestion"><i class="bi bi-question-circle  me-3"></i><span>Questions</span></a>
+                        </li> -->
+
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-gear  me-3"></i><span>Settings</span></a>
+                        </li>
+                     
+                    </ul>
+                    <ul class="navbar-nav d-flex">
+                        <!-- Other sidebar items -->
+                      
+                        <li class="nav-item mb-2">
+                          <a href="javascript:void(0);" class="nav-link" (click)="logout()">
+                            <i class="bi bi-box-arrow-right me-3" ></i>
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <div class="outer-content-wrapper">
+        <div class="top-header py-2 pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5 offset-md-7">
+                        <div class="d-flex">
+                            <div class="input-group me-3">
+                                <input type="text" class="form-control common-form-control" placeholder="Search Here">
+                                <button type="button" class="btn btn-primary search-btn"><i class="bi bi-search"></i></button>
+                            </div>
+
+                            <div class="list-group list-group-horizontal list-group-flush">
+                                <div class="dropdown" onmouseover="showDropdown()">
+                                    <a class="list-group-item list-group-action mx-2 px-3" href="#"><i class="bi bi-person"></i></a>
+                                    <div id="dropdownContent" class="dropdown-content">
+                                      <a href="../forgotPassword">Forgot Password</a>
+                                    </div>
+                                  </div>
+                                <a class="list-group-item list-group-action me-2 px-3" href="#"><i class="bi bi-bell"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="dashboard-fliter py-2 px-4">
+            <div class="container-fluid">
+                <div class="row mx-0 align-items-center">
+                    <div class="col-md-8">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="../Admin_dashboardComponent">Admin Dashboard</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Subject  Details</li>
+                            </ol>
+                          </nav>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn-e20086" [routerLink]="['/subsection']" [queryParams]="{ resetForm: 'true' }" >Add Subtopic</button>
+                      </div>
+                      
+                </div>
+            </div>
+        </div>
+
+        <div class="inner-content-wrapper pt-4 ">
+            <div class="container-fluid">
+
+   
+                <!-- <div class="row mx-0 ">
+                    <div class="col-md-6">
+                        <h3 class="">iMedOne Knowledge</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Skill Knowledge</h3>
+                    </div>
+                </div> -->
+
+
+   <!---===============================================================================================================================================-->             
+                <div class="knowledge-wrapper pt-3 containerbg">
+                    <div>
+                        <h2>{{ subject?.labelName }}</h2>
+                        <p>Group: {{ subject?.group }}</p>
+                        <p>Description: {{ subject?.description }}</p>
+                      </div>
+                      <!-- <div *ngFor="let subtopic of subtopics">
+                        <h2>{{ subtopic.labelName }}</h2>
+                        <h2>{{ subtopic.textareaContent }}</h2>
+                      </div> -->
+                      <div class="row">
+                        <ng-container *ngFor="let subtopic of subtopics">
+                          <div class="col-md-4 mb-4">
+                            <div class="card h-100 position-relative" style="width: 18rem;">
+                              <div class="card-body d-flex flex-column">
+                                <!-- <h5 class="card-title">{{ card.labelName }}<i class="material-icons delete-icon position-absolute top-0 end-0 m-3" (click)="deleteCard(card._id)">delete</i></h5> -->
+                                <h5 class="card-title">{{ subtopic.labelName }}
+                                    <i *ngIf="!subtopic.isPublished" class="material-icons publish-icon delete-icon position-absolute top-5 end-10 m-9" (click)="publishSubtopic(subtopic._id, subtopic.labelName)">publish</i>
+                                    <i class="material-icons delete-icon position-absolute top-0 end-0 m-3" (click)="deleteCard(subtopic._id, subtopic.labelName)">delete</i>
+                                  </h5>
+                                <p class="card-text">{{ subtopic.textareaContent }}</p>
+                                <div class="icon-button-container">
+                                    <button type="button" class="btn-e20086" [routerLink]="['/content', subtopic.labelName]">View</button>
+                                    <i class="material-icons delete-icon position-absolute top-6 end-1 m-3" [routerLink]="['/subsection', subtopic.labelName, { action: 'create' }]">create</i>
+                                </div>       
+                            </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                      
+                </div>
+               
+               
+
+  <!---===============================================================================================================================================-->
+    </div>
+</div>
+        <div class="dashboard-footer pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-end">
+                        <button type="button" class="btn btn-primary grey-btn me-3">Cancel</button>
+                        <button type="button" class="btn btn-primary coloured-btn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+
+    <div class="login-card-inner-wrapper d-flex position-relative">
+    <div class='container'>
+        <div class="login-card-wrapper position-relative">
+            <div class='row'>
+                <div class="col-md-5">
+                    <div class="login-logo-wrapper">
+                        <div class="login-logo-inner-wrapper">
+                        <img src="../assets/company-logo.png" alt="Company Logo"/>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="login-form-wrapper position-relative">
+                        <h2 class="login-title">Admin Login</h2>
+
+                        <div *ngIf="loginSuccess" class="alert alert-success" role="alert">
+                            Login successful..!
+                          </div> 
+                          <div *ngIf="loginError" class="alert alert-danger" role="alert">
+                            Login failed..!
+                        </div> 
+
+
+                        <!--radio buttons start-->
+                        <!-- <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="userRole" id="employeeRadio" value="employee" checked>
+                            <label class="form-check-label" for="employeeRadio">Employee</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="userRole" id="adminRadio" value="admin">
+                            <label class="form-check-label" for="adminRadio">Admin</label>
+                          </div> -->
+                        <!--radio buttons ends-->
+
+                        <form  (ngSubmit)="login()">
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="user.username" name="username" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-12 d-grid">
+                                    <button type="submit" class="btn btn-primary login-btn1"  (click)="login()">Login</button>
+                                    <!-- <button type="submit" class="btn btn-primary login-btn1" routerLink="../dashboard">Employee Login</button>
+                                    <button type="submit" class="btn btn-primary login-btn1" routerLink="../Admin_dashboardComponent">Admin Login</button> -->
+                                    
+                                    <!-- <button  routerLink="../Admin_dashboardComponent" type="submit" class="btn btn-primary login-btn2">Admin Login</button> -->
+                                
+                                    <!-- <button routerLink="../dashboard" type="button" class="btn btn-primary">Primary</button>
+                                    <button routerLink="../dashboard" type="button" class="btn btn-secondary">Secondary</button> -->
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-center"> want to Update your password ? <a routerLink="../forgotPassword" class="signup-link">Update Password</a></p>
+                                </div>
+                               
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

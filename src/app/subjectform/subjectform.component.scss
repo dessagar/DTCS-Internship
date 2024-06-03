@@ -1,0 +1,208 @@
+.knowledge-wrapper
+{
+    height: calc(100vh - 270px);
+    overflow-y: auto;
+    .card
+    {
+        border: none;
+        box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05);
+        border-left: 3px solid #e20086;
+        border-radius: 0px;
+        cursor: pointer;
+        
+    }
+}
+
+
+.dashboard-fliter
+{
+    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 4%);
+    background: #fff;
+}
+
+.dashboard-footer
+{      
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    height: 70px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.17);
+    left: 0;
+}
+.disabled-card {
+    opacity: 0.6; // Example: reduce opacity for a disabled look
+    cursor: not-allowed; // Change the cursor to a disabled pointer
+    // Add any other styles to visually indicate that the card is disabled
+  }
+
+/* Dropdown container */
+.custom-dropdown {
+    position: relative;
+    width: 80px;
+    // display: inline-block
+}
+
+/* Dropdown button style */
+.dropdown-toggle {
+    color: rgb(11, 10, 10);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+/* Dropdown menu style */
+.dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 0;
+    z-index: 1;
+    display: none;
+}
+
+/* Dropdown menu items style */
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Show dropdown menu on hover */
+.custom-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Button style */
+.btn-e20086 {
+    background-color: #e20086;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.btn-e20086:hover {
+    background-color: #d0007a;
+}
+
+.edit-button {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    color: blue;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+// .edit-button:hover {
+//     text-decoration: underline;
+// }
+
+.dropbtn {
+    width: 100%;
+    background-color: white;
+    border: 1px solid rgb(231, 230, 230);
+    color: gray;
+}
+.dropbtn:hover{
+    background-color: #66224a;
+    color: #fff;
+}
+.custom-label {
+    font-weight: bold;
+  }
+/* Add this to your component's styles or in a global styles file */
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .custom-file-input {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+  }
+  
+  .custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+  
+  .custom-file-input:focus ~ .custom-file-label {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+/* Add this to your component's styles or in a global styles file */
+.file-info {
+    background-color: #f0f0f0; /* Grey background color */
+    padding: 8px; /* Adjust the padding as needed */
+    margin-bottom: 8px; /* Add margin between each file entry */
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Space elements evenly along the line */
+    align-items: center; /* Align items vertically in the center */
+    width: 1300px;
+  }
+  
+  .file-actions {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Align items vertically in the center */
+  }
+  
+  .delete-icon {
+    color: red; /* Customize the delete icon color */
+    margin-left: 8px; /* Add spacing between the delete icon and file information */
+    cursor: pointer; /* Set cursor to pointer for better UX */
+  }
+  
+  .contfiles{
+    padding: 40px;
+  }
+  .scroll{
+    max-height: 630px; /* Set the maximum height for the container */
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+  }
+  
+  .card {
+    max-width: 800px; /* Decrease width */
+    height: 400px; /* Increase height */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
+    margin: auto; /* Center horizontally */
+}
+
+.card-body {
+    height: 100%; /* Ensure card body fills card height */
+    padding: 30px;
+    display: flex; /* Use flexbox to vertically center content */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: 120px;
+    margin-right: 10px;
+}

@@ -1,0 +1,148 @@
+
+
+.knowledge-wrapper
+{
+    // height: calc(100vh - 270px);
+    // overflow-y: auto;
+    .card
+    {
+        border: none;
+        box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05);
+        border-left: 3px solid #e20086;
+        border-radius: 0px;
+        cursor: pointer;
+        border-right: 2px solid #eee;
+        border-top: 2px solid #eee;       
+    }
+}
+.card-title {
+    border: 1px solid #4e4e4e;
+    padding: 2px 6px;
+    // border-radius: 5px;
+    
+}
+
+
+.delete-icon{
+    color: #e20086;
+}
+.dashboard-fliter
+{
+    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 4%);
+    background: #fff;
+}
+
+.dashboard-footer
+{      
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    height: 70px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.17);
+    left: 0;
+}
+.disabled-card {
+    opacity: 0.6; // Example: reduce opacity for a disabled look
+    cursor: not-allowed; // Change the cursor to a disabled pointer
+    // Add any other styles to visually indicate that the card is disabled
+  }
+
+
+  .containerbg{
+    background-color: #fff;
+    padding: 20px;
+
+}
+
+.highlight-item {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: #e20074;
+}
+
+.highlight-item::after,
+.highlight-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #e20086;
+}
+
+.highlight-item::before {
+    right: 0;
+}
+
+.highlight-item::after {
+    left: 0;
+}
+
+
+/* Button style */
+.btn-e20086 {
+    background-color: #e20086;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 210px;
+    height: 40px;
+}
+
+
+
+
+/* Hover effect */
+.btn-e20086:hover {
+    background-color: #d0007a;
+}
+#imed{
+    height: calc(100vh - 270px);
+    overflow-y: auto;
+}
+
+
+
+#skill{
+    height: calc(100vh - 270px);
+    overflow-y: auto;
+}
+
+/* CSS */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position the dropdown content just below the icon */
+    left: 0; /* Align the dropdown content with the left edge of the icon */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  

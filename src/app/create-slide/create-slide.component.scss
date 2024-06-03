@@ -1,0 +1,105 @@
+.content-outer-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .container-fluid {
+        width: 100%;
+      }
+      
+    .content-wrapper {
+        box-shadow: 0 3px 20px 2px rgba(0, 0, 0, 0.08);
+        padding: 1rem;
+        background: linear-gradient(180deg, #d6d6d6 60%, #e20086 40%);
+    
+        .content-inner-wrapper {
+          background: #fff;
+          padding: 2.7rem;
+
+          h2{
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #e20086;
+
+          }
+        label{
+              font-size: 1.8rem;
+                font-weight: 400;
+                color: #e20086;
+   
+        }
+        ::ng-deep input[type="text"] {
+            margin-bottom: 15px;
+          
+            & {
+              margin-bottom: 10px;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              box-shadow: 0 0 5px rgba(120, 118, 118, 0.2);
+              transition: box-shadow 0.3s ease-in-out;
+          
+              &:focus {
+                outline: none;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+              }
+            }
+          
+            button {
+              margin-left: 10px;
+            }
+          }
+          
+          ::ng-deep .btn-danger {
+            margin-left: 10px;
+          }
+          .btn-primary {
+            margin-left: 550px; /* Add margin-top to space out from the inputs */
+            border: 1px solid #f4f0f2;
+            background-color:#e20086;
+            padding: 10px 15px; /* Adjust padding to increase button size */
+            font-size: 1.2rem; /* Optionally adjust font size */
+          }
+          .module{
+            margin-right: 15px;
+          }
+          .magenta{
+            border: 2px solid #e20086; /* Border color */
+            background-color: #fff; /* Background color when checked */
+            margin-right: 5px; /* Adjust as needed */
+          }
+          
+          .magenta:checked {
+            border: 2px solid #fff; /* Border color when checked */
+            background-color: #e20086; /* Background color when checked */
+          }
+        }
+    }
+
+}
+.btnedit,.btndel{
+  width: 30px;
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: 8px;
+}
+.btnedit{
+  color: #e20086;
+  margin-right: 20px;
+}
+.btndel{
+  color: red;
+  margin-right: 0px;
+}
+.pink{
+  color: #e20086;
+  text-decoration: underline;
+}
+
+.containerbg{
+max-height: 670px;
+  overflow-y: auto;
+}
+.default-checked {
+  /* Add styles to simulate a checked radio button */
+  background-color: rgb(119, 119, 252); /* Change to your desired blue color */
+}

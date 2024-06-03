@@ -1,0 +1,176 @@
+<!-- create-slide.component.html -->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="page-wrapper">
+    <div class="sidebar position-relative">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="" class="navbar-brand my-4 ms-3"><img _ngcontent-upr-c1="" src="../assets/company-logo.png"
+                        alt="Company Logo"></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navigationBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigationBar">
+                    <ul class="navbar-nav navigation-top-link">
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../Admin_dashboardComponent"><i class="bi bi-house-door me-3"></i><span>Dashboard</span></a>
+                        </li>
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../admin_subject"><i
+                                    class="bi bi-speedometer2  me-3"></i><span>Subject</span></a>
+                        </li> -->
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-bug  me-3"></i><span>Forum</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-grid  me-3"></i><span>Library</span> </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-people  me-3"></i><span>My Profile</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../askme"><i class="bi bi-question-circle  me-3"></i><span>Ask me</span></a>
+                        </li>
+
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../chatbot"><i class="bi bi-question-circle  me-3"></i><span>Chat</span></a>
+                        </li> -->
+
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../chatQuestion"><i class="bi bi-question-circle  me-3"></i><span>Questions</span></a>
+                        </li> -->
+
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-gear  me-3"></i><span>Settings</span></a>
+                        </li>
+                     
+                    </ul>
+                    <ul class="navbar-nav d-flex">
+                        <!-- Other sidebar items -->
+                      
+                        <li class="nav-item mb-2">
+                          <a href="javascript:void(0);" class="nav-link" >
+                            <i class="bi bi-box-arrow-right me-3"></i>
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <div class="outer-content-wrapper">
+        <div class="top-header py-2 pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5 offset-md-7">
+                        <div class="d-flex">
+                            <div class="input-group me-3">
+                                <input type="text" class="form-control common-form-control" placeholder="Search Here">
+                                <button type="button" class="btn btn-primary search-btn"><i class="bi bi-search"></i></button>
+                            </div>
+
+                            <div class="list-group list-group-horizontal list-group-flush">
+                                <a class="list-group-item list-group-action me-2 px-3" href="#"><i class="bi bi-bell"></i></a>
+                                <a class="list-group-item list-group-action mx-2 px-3" href="#"><i class="bi bi-person"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+             <div class="imedone-flow-wrap mt-3">
+                          <div class="container-fluid">
+                            <div class="row containerbg">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-12">
+                                <div class="flow-wrap" *ngIf="!showDetailedView">
+                                  <div class="flow-head-wrap py-2">
+                                    <div class="flow-header py-2">
+                                      <h3 class="text-center mb-0">iMedOne</h3>
+                                    </div>
+                                    <div class="flow-subheader text-center">
+                                      <div class="flow-subheader-inner text-center d-inline-block p-2">
+                                        <h5 class="mb-0">GRM Flow</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="flow-content p-2">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="flow-content-img-wrap position-relative text-center">
+                                          <img src="../../../assets/iMedOne-Flow/GRM-IN-IMEDONE FLOW.jpg" alt="GRM Flow" width="56%">
+                                          <input type="checkbox" id="checkGrm"> <label class="btn btn-primary info-btn chat-btn " for="checkGrm"> <i
+                                            class="bi bi-info-circle"></i> </label>
+                                        <div class="wrapper">
+                                          <div class="header">
+                                            <h5>GRM Flow</h5>
+                                          </div>
+                                          <div class="py-2 px-3 text-start">
+                                            <p>1. The Global Resource Management (GRM) Planning module allows to create a comprehensive plan for patient's case, involving different entities as needed.
+                                            </p>                                                       
+                                            <button  type="button" class="btn btn-primary coloured-btn" (click)="toggleDetailedView()">Read More</button>
+                                          </div>
+                                       
+                                        </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                        
+                                </div>
+                                <div class="flow-wrap" *ngIf="showDetailedView">
+                                  <div class="flow-head-wrap py-2">
+                                    <div class="flow-header py-2">
+                                      <h3 class="text-center mb-0">iMedOne</h3>
+                                    </div>
+                                    <div class="flow-subheader text-center">
+                                      <div class="flow-subheader-inner text-center d-inline-block p-2">
+                                        <h5 class="mb-0">GRM Flow</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="flow-content p-2">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="flow-content-img-wrap position-relative text-center">
+                                          <img src="../../../assets/iMedOne-Flow/GRM FLOW.jpg " alt="iMedOneFlow" width="56%">
+                                          <input type="checkbox" id="checkGrm"> <label class="btn btn-primary info-btn chat-btn " for="checkGrm"> <i
+                                            class="bi bi-info-circle"></i> </label>
+                                        <div class="wrapper">
+                                          <div class="header">
+                                            <h5>GRM Flow</h5>
+                                          </div>
+                                          <div class="py-2 px-3 text-start">
+                                            <p>1. The Global Resource Management (GRM) Planning module allows to create a comprehensive plan for patient's case, involving different entities as needed.
+                                            </p>
+                      
+                                               <button  type="button" class="btn btn-primary coloured-btn" (click)="goToGrmContent()">Read More</button>
+                      
+                                          </div>
+                                       
+                                        </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                        
+                                </div>
+                              </div>
+                        
+                            </div>
+                        
+                   
+                  
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                <!-- </div> -->
+               
+ 

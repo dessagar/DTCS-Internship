@@ -1,0 +1,159 @@
+
+
+.knowledge-wrapper
+{
+    height: calc(100vh - 270px);
+    overflow-y: auto;
+    .card
+    {
+        border: none;
+        box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05);
+        border-left: 3px solid #e20086;
+        border-radius: 0px;
+        cursor: pointer;
+        
+    }
+}
+
+
+.dashboard-fliter
+{
+    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 4%);
+    background: #fff;
+}
+
+.dashboard-footer
+{      
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    height: 70px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.17);
+    left: 0;
+}
+.disabled-card {
+    opacity: 0.6; // Example: reduce opacity for a disabled look
+    cursor: not-allowed; // Change the cursor to a disabled pointer
+    // Add any other styles to visually indicate that the card is disabled
+  }
+
+
+/* Dropdown container */
+.custom-dropdown {
+    position: relative;
+    width: 80px;
+    // display: inline-block
+}
+
+/* Dropdown button style */
+.dropdown-toggle {
+    background-color: #e20086; /* #e20086 color theme */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown menu style */
+.dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 0;
+    z-index: 1;
+    display: none;
+}
+
+/* Dropdown menu items style */
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Show dropdown menu on hover */
+.custom-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Button style */
+.btn-e20086 {
+    background-color: #e20086;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 210px;
+    height: 40px;
+}
+
+.btn2-e20086 {
+    background-color: #e20086;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.delete-icon {
+    margin-left: 80px; /* Adjust the margin as needed */
+    cursor: pointer;
+    color: #e20086;
+}
+
+/* Hover effect */
+.btn-e20086:hover {
+    background-color: #d0007a;
+}
+
+.edit-button {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    color: blue;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+// .edit-button:hover {
+//     text-decoration: underline;
+// }
+.drop{
+    display: flex;
+}
+
+.highlight-item {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: #e20074;
+}
+
+.highlight-item::after,
+.highlight-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #e20086;
+}
+
+.highlight-item::before {
+    right: 0;
+}
+
+.highlight-item::after {
+    left: 0;
+}
+
+
+

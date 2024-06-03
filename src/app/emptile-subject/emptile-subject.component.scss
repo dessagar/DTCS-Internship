@@ -1,0 +1,76 @@
+
+
+.knowledge-wrapper
+{
+    height: calc(100vh - 270px);
+    // overflow-y: auto;
+    .card
+    {
+        border: none;
+        box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05);
+        border-left: 3px solid #e20086;
+        border-radius: 0px;
+        cursor: pointer;
+        
+    }
+}
+
+.delete-icon{
+    color: #e20086;
+}
+.dashboard-fliter
+{
+    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 4%);
+    background: #fff;
+}
+
+.dashboard-footer
+{      
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    height: 70px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.17);
+    left: 0;
+}
+.disabled-card {
+    opacity: 0.6; // Example: reduce opacity for a disabled look
+    cursor: not-allowed; // Change the cursor to a disabled pointer
+    // Add any other styles to visually indicate that the card is disabled
+  }
+/* Button style */
+.btn-e20086 {
+    background-color: #e20086;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 210px;
+    height: 40px;
+}
+
+.btn2-e20086 {
+    background-color: #e20086;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.btn-e20086:hover {
+    background-color: #d0007a;
+}
+.icon-button-container {
+    position: relative;
+    
+  }
+  
+  .icon-button-container button {
+    margin-right: 10px; /* Adjust as needed */
+    margin-bottom: 10px;
+  }
+  
+  

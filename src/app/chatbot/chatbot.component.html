@@ -1,0 +1,17 @@
+<!-- chatbot.component.html -->
+
+<div class=" container chat-container">
+  <div class="chat-header">Ask me Questions</div>
+    <div class="chat-messages">
+      <div *ngFor="let message of messages" class="message chat-messages" id="chat-messages"  >
+        {{ message }}
+      </div>
+    </div>
+ 
+    <div class="user-input" [formGroup]="chatForm">
+        <input formControlName="userQuery" placeholder="Type your Query..." />
+        <button (click)="sendMessage()">Send</button>
+    </div>
+  
+  </div>
+  

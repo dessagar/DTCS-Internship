@@ -1,0 +1,74 @@
+.flow-wrap {
+  box-shadow: 0 3px 20px 2px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  background: #fff;
+
+  .flow-head-wrap {
+    .flow-header {
+      color: #fff;
+      position: relative;
+      background: #e20086;
+
+    }
+    .flow-subheader {
+      .flow-subheader-inner {
+        background: #fff;
+        z-index: 1;
+        position: relative;
+
+
+        h5
+        {
+          font-size: 1.7rem;
+  font-weight: 600;
+  border-bottom: 1px solid;
+        }
+
+        .nav-item {
+          border: 1px solid #e20086;
+
+          .nav-link {
+            border-radius: 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #e20086;
+          }
+
+          .nav-link.active,
+          .show > .nav-link {
+            background: #e20086;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+body {
+  background-color: #eee
+}
+
+.containerbg{
+max-height: 720px;
+overflow: auto;
+
+}
+/* For webkit based browsers like Chrome and Safari */
+.containerbg::-webkit-scrollbar {
+width: 8px; /* Adjust the width as needed */
+}
+
+/* Track */
+.containerbg::-webkit-scrollbar-track {
+background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Handle */
+.containerbg::-webkit-scrollbar-thumb {
+background: #888; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+.containerbg::-webkit-scrollbar-thumb:hover {
+background: #555; /* Color of the scrollbar handle when hovered */
+}

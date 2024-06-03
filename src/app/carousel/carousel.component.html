@@ -1,0 +1,82 @@
+
+  <!--carousel.html -->
+
+<div class="content-wrapper">
+    <div class="row">
+      <div class="section1 col">
+        <h2>{{ title }}</h2>
+        <h3>{{ subTitle }}</h3>
+    
+        <div class="my-4 carimg" *ngIf="imageSrc">
+          <img [src]="'http://localhost:3000/uploads/default/' + imageSrc" style="width: 296px; height: 275px;" alt="Image">
+        </div>
+    <div class="desc">
+        <h5>
+          {{ truncatedDescription }}
+          <!-- Display "Read More" button if description exceeds maximum words -->
+          <button *ngIf="showReadMoreButton()" (click)="toggleDescription()" class="btn">Read More</button>
+        </h5>
+      </div>
+        <div *ngIf="showFullDescription" class="description-box">
+          <div class="header">{{ title }}</div>
+          <button class="close-btn" (click)="toggleDescription()">
+            <i class="bi bi-x"></i> <!-- Bootstrap Icons close icon -->
+          </button>
+          <div class="py-2 px-3 text-start">
+            {{ description }}
+          </div>
+        </div>
+      </div>
+    
+
+ <!-- carousel.component.html -->
+ <div class="section2 col">
+  <div class="flow-subheader">
+    <div class="flow-subheader-inner text-center d-inline-block p-2">
+      <ul class="nav nav-pills">
+        <li class="nav-item me-3" >
+            <button class="nav-link" [class.active]="activeTab === 'video'" (click)="activeTab = 'video'" *ngIf="videoData && videoData.length > 0">External Resource</button>
+        </li>
+        <li class="nav-item me-3">
+            <button class="nav-link" [class.active]="activeTab === 'local'" (click)="activeTab = 'local'" *ngIf="localData && localData.length > 0">Internal Resource</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="videobg">
+    <div class="video" *ngIf="activeTab === 'video'">
+      <div class="video-container" *ngFor="let video of videoData; let i = index">
+        <!-- <div class="card" style="width: 30rem;"> -->
+          <!-- <div class="card-body"> -->
+            <!-- <h5 class="card-title">{{ video.title }}</h5> -->
+            <!-- <p class="card-text">{{ video.text }}</p> -->
+            <!-- Separate container for each YouTube video -->
+            <div class="youtube-video-container">
+              <app-youtube-player [youtubeUrl]="video.youtubeUrl"></app-youtube-player>
+            </div>
+          <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+    
+  
+    <div class="local" *ngIf="activeTab === 'local'">
+      <div class="video-container" *ngFor="let local of localData; let i = index">
+        <div class="card" style="width: 30rem;">
+          <video class="card-img-top" width="100%" height="180" controls>
+            <source [src]="getVideoUrl(local.localVideoFile)" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">{{ local.videoTitle }}</h5>
+            <p class="card-text">{{ local.videoDescription }}</p>
+          </div>
+        </div>
+      </div>          
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  

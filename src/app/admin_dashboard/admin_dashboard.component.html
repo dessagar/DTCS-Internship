@@ -1,0 +1,372 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="page-wrapper">
+    <div class="sidebar position-relative">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="" class="navbar-brand my-4 ms-3"><img _ngcontent-upr-c1="" src="../assets/company-logo.png"
+                        alt="Company Logo"></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navigationBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigationBar">
+                    <ul class="navbar-nav navigation-top-link">
+                        <li class="nav-item mb-2">
+                            <a class="nav-link highlight-item" [routerLink]="['/Admin_dashboardComponent']" [queryParams]="{ role: 'admin' }" queryParamsHandling="merge">
+                              <i class="bi bi-house-door me-3"></i>
+                              <span>Dashboard</span>
+                            </a>
+                          </li>
+                                                   
+                          
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../signup"><i class="bi bi-people  me-3"></i><span>New Admin</span></a>
+                        </li>
+
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-bug  me-3"></i><span>Forum</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-grid  me-3"></i><span>Library</span> </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-people  me-3"></i><span>My Profile</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../askme"><i class="bi bi-question-circle  me-3"></i><span>Ask me</span></a>
+                        </li>
+
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../chatbot"><i class="bi bi-question-circle  me-3"></i><span>Chat</span></a>
+                        </li> -->
+
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../chatQuestion"><i class="bi bi-question-circle  me-3"></i><span>Questions</span></a>
+                        </li> -->
+
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../forgotPassword"><i class="bi bi-gear  me-3"></i><span>Settings</span></a>
+                        </li>
+                     
+                    </ul>
+                    <ul class="navbar-nav d-flex">
+                      
+                        <li class="nav-item mb-2">
+                          <a href="javascript:void(0);" class="nav-link" (click)="logout()">
+                            <i class="bi bi-box-arrow-right me-3"></i>
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <div class="outer-content-wrapper">
+        <div class="top-header py-2 pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5 offset-md-7">
+                        <div class="d-flex">
+                            <div class="input-group me-3">
+                                <input type="text" class="form-control common-form-control" placeholder="Search Here">
+                                <button type="button" class="btn btn-primary search-btn"><i class="bi bi-search"></i></button>
+                            </div>
+
+                            <div class="list-group list-group-horizontal list-group-flush">
+                                <!-- <a class="list-group-item list-group-action me-2 px-3" href="#"><i class="bi bi-bell"></i></a> -->
+                                <!-- <a class="list-group-item list-group-action mx-2 px-3" href="#"><i class="bi bi-person"></i></a> -->
+                                <div class="dropdown" onmouseover="showDropdown()">
+                                    <a class="list-group-item list-group-action mx-2 px-3" href="#"><i class="bi bi-person"></i></a>
+                                    <div id="dropdownContent" class="dropdown-content">
+                                      <a href="../forgotPassword">Forgot Password</a>
+                                    </div>
+                                  </div>
+                                  <a class="list-group-item list-group-action me-2 px-3" href="#"><i class="bi bi-bell"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="dashboard-fliter py-2 px-4">
+            <div class="container-fluid">
+                <div class="row mx-0 align-items-center">
+                    <div class="col-md-8">
+                        <div class="col-md-8">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
+                                </ol>
+                              </nav>
+                        </div>
+                    </div>
+                   <div class="col-md-4">
+                    <button type="button" class="btn-e20086" routerLink="../subjectform">Add Subject </button>
+                </div>
+        
+                </div>
+            </div>
+        </div>
+                <div class="inner-content-wrapper pt-4 pb-3 px-4">
+                    
+                    <div class="alert alert-success" role="alert" *ngIf="showSuccessMessage">
+                        Subject Published successfully!
+                    </div>
+                    
+                    <div class="container-fluid">
+        <div class="row">
+        
+
+            <div class="col-md-10 offset-md-1">
+                        <div class="row mx-0 ">
+                            <div class="col-md-6">
+                                <h3 class="">iMedOne Knowledge</h3>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Skill Knowledge</h3>
+                            </div>
+
+                        </div>
+        
+        
+                        
+                        <div class="knowledge-wrapper pt-3">
+                            <div class="row mx-0">
+        
+                            
+                                        <!-- <div class="col-md-12">
+                                            <div *ngFor="let card of leftColumn" class="card mb-3 py-2">
+                                                <div class="card-body d-flex justify-content-between align-items-center" routerLink="../tilesubject">
+                                                    <h5 class="card-body d-flex justify-content-between align-items-center" [routerLink]="['../tilesubject', card.labelName]">
+                                                        {{ card.labelName }}</h5> -->
+                                                    <!-- <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6> -->
+                                                    <!-- <div><i class="material-icons delete-icon" (click)="deleteCard(card._id, 'imed')">delete</i></div>
+                                                </div> 
+                                            </div>
+                                        </div> -->
+
+                                        <!--==============================================================================================================================-->
+                                        <!-- <div class="col-md-12">
+                                            <div *ngFor="let card of leftColumn" class="card mb-3 py-2">
+                                                <div class="card-body d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title editable card-body d-flex justify-content-between align-items-center" contenteditable="true" (blur)="updateCard(card, $event)" >{{ card.labelName }}</h5>
+                                                    <h6 class="card-subtitle common-card-subtitle"  [routerLink]="['../tilesubject', card.labelName]">Sub Topics(10)</h6> 
+                                                    <div>
+                                                        <i class="material-icons delete-icon" (click)="deleteCard(card._id, 'imed')">delete</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <!--==============================================================================================================================-->
+
+                                        <!-- <div class="col-md-12">
+                                            <div *ngFor="let card of leftColumn" class="card mb-3 py-2">
+                                                <div class="card-body d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <h5 class="card-title editable" contenteditable="true" (blur)="updateCard(card, $event)">{{ card.labelName }}</h5>
+                                                        <h6 class="card-subtitle common-card-subtitle" [routerLink]="['../tilesubject', card.labelName]">Sub Topics ({{ getSubtopicCount(card.labelName) }})</h6> 
+                                                    </div>
+                                                    <div>
+                                                        <i *ngIf="!card.isPublished" class="material-icons publish-icon delete-icon mr-2" (click)="publishCard(card._id)">publish</i>
+                                                        <i class="material-icons delete-icon" (click)="deleteCard(card._id, 'imed')">delete</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+<!--=====================================================================================================================================================================================-->
+                                        <!-- <div class="col-md-12">
+                                                <div class="card mb-3 py-2">
+                                                <div class="card-body d-flex justify-content-between align-items-center" routerLink="../pmsFlow">
+                                                    <div>
+                                                        <h5 class="card-title editable">PMS</h5>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="card mb-3 py-2">
+                                                    <div class="card-body d-flex justify-content-between align-items-center"  routerLink="../careFlow">
+                                                        <div>
+                                                            <h5 class="card-title editable">CARE</h5>
+                                                            <h6 class="card-subtitle common-card-subtitle" routerLink="../careFlow">Get Content</h6> 
+
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="card mb-3 py-2">
+                                                        <div class="card-body d-flex justify-content-between align-items-center"  routerLink="../lsmFlow">
+                                                            <div>
+                                                                <h5 class="card-title editable">LSM</h5>
+                                                                <h6 class="card-subtitle common-card-subtitle" routerLink="../lsmFlow">Get Content</h6> 
+
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="card mb-3 py-2">
+                                                            <div class="card-body d-flex justify-content-between align-items-center"  routerLink="../docopFlowPage">
+                                                                <div>
+                                                                    <h5 class="card-title editable">DOC.OP</h5>
+                                                                    <h6 class="card-subtitle common-card-subtitle"  routerLink="../docopFlowPage">Get Content</h6> 
+
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <div class="card mb-3 py-2">
+                                                                <div class="card-body d-flex justify-content-between align-items-center"  routerLink="../billingFlow">
+                                                                    <div>
+                                                                        <h5 class="card-title editable">BILLING</h5>
+                                                                        <h6 class="card-subtitle common-card-subtitle"  routerLink="../billingFlow">Get Content</h6> 
+
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                                <div class="card mb-3 py-2">
+                                                                    <div class="card-body d-flex justify-content-between align-items-center"  routerLink="../amsFlowPage">
+                                                                        <div>
+                                                                            <h5 class="card-title editable">AMS</h5>
+                                                                            <h6 class="card-subtitle common-card-subtitle" routerLink="../amsFlowPage">Get Content</h6> 
+
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="card mb-3 py-2">
+                                                                        <div class="card-body d-flex justify-content-between align-items-center"  routerLink="../grmFlow">
+                                                                            <div>
+                                                                                <h5 class="card-title editable">GRM</h5>
+                                                                                <h6 class="card-subtitle common-card-subtitle"   routerLink="../grmFlow">Get Content</h6> 
+
+                                                                            </div>
+                                                                        </div>
+                                                       </div>
+
+                                                       <div *ngFor="let card of leftColumn" class="card mb-3 py-2">
+                                                        <div class="card-body d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <h5 class="card-title editable" contenteditable="true" (blur)="updateCard(card, $event)">{{ card.labelName }}</h5>
+                                                                <h6 class="card-subtitle common-card-subtitle"   routerLink="../grmFlow">Get Content</h6> 
+                                                            </div>
+                                                            <div>
+                                                                <i *ngIf="!card.isPublished" class="material-icons publish-icon delete-icon mr-5" (click)="publishCard(card._id)">publish</i>
+                                                                <i class="material-icons delete-icon" (click)="deleteCard(card._id, 'skill')">delete</i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        </div> -->
+<!--=======================================================================================================================================================================================================================-->
+<!-- <div class="col-md-12">
+    <div *ngFor="let card of cardsData" class="card mb-3 py-2">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title editable">{{ card.label }}</h5>
+          <h6 class="card-subtitle common-card-subtitle" [routerLink]="card.routerLink">Get Content</h6>
+        </div>
+        <i class="material-icons delete-icon">delete</i>
+      </div>
+    </div>
+  </div>   -->
+  <!---===================================================================================================================-->
+  <!-- <div class="col-md-12">
+    <div *ngFor="let card of cardsData; let i = index" class="card mb-3 py-2">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title editable" contenteditable="true">{{ card.label }}</h5>
+          <h6 class="card-subtitle common-card-subtitle" [routerLink]="card.routerLink">Get Content</h6>
+        </div>
+        <i class="material-icons delete-icon">delete</i>
+      </div>
+    </div>
+  </div> -->
+<!--===========================================================================================================================-->
+<div class="col-md-6" id="imed">
+    <div class="row">
+<div class="col-md-12" style="overflow-y:auto;">
+    <div *ngFor="let card of cardsData; let i = index" class="card mb-3 py-2">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title editable" contenteditable="true" (blur)="updateDefaultCard(card, $event)">{{ card.label }}</h5>
+          <!-- <h6 class="card-subtitle common-card-subtitle" [routerLink]="card.routerLink">Get Content</h6> -->
+        </div>
+        <div>
+        <i class="material-icons delete-icon mr-7" (click)="executeFunction(card.functioncall)" title="Information">info</i>
+        <i *ngIf="!card.isPublished" class="material-icons publish-icon delete-icon mr-9" (click)="publishDefaultCard(card._id)" title="Publish">publish</i>
+        <i class="material-icons delete-icon"  (click)="deleteDefaultCard(card._id)" title="Delete">delete</i>
+        </div>
+
+      </div>
+    </div>
+    <div *ngFor="let card of leftColumn" class="card mb-3 py-2">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="card-title editable" contenteditable="true" (blur)="updateCard(card, $event)">{{ card.labelName }}</h5>
+                <!-- <h6 class="card-subtitle common-card-subtitle" [routerLink]="['../slidercontent', card.labelName]">Sub Topics ({{ getSubtopicCount(card.labelName) }})</h6>  -->
+            </div>
+            <div>
+                <i class="material-icons delete-icon mr-7" [routerLink]="['../slidercontent', card.labelName]" (click)="goTosliderContent(card)" title="Information">info</i>
+                <i *ngIf="!card.isPublished" class="material-icons publish-icon delete-icon mr-5" (click)="publishCard(card._id)" title="Publish">publish</i>
+                <i class="material-icons delete-icon" (click)="deleteCard(card._id, 'skill')" title="Delete">delete</i>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                
+        
+                                <div class="col-md-6" id="skill">
+                                    <div class="row">
+                                        <!-- <div class="col-md-12">
+                                            <div *ngFor="let card of rightColumn" class="card mb-3 py-2">
+                                                <div class="card-body d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-body d-flex justify-content-between align-items-center" [routerLink]="['../tilesubject', card.labelName]">
+                                                        {{ card.labelName }}</h5> -->
+                                                    <!-- <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6> -->
+                                                    <!-- <div><i class="material-icons delete-icon" (click)="deleteCard(card._id, 'skill')">delete</i></div>                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="col-md-12" style="overflow-y:auto;">
+                                            <div *ngFor="let card of rightColumn" class="card mb-3 py-2">
+                                                <div class="card-body d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <h5 class="card-title editable" contenteditable="true" (blur)="updateCard(card, $event)">{{ card.labelName }}</h5>
+                                                        <h6 class="card-subtitle common-card-subtitle" [routerLink]="['../tilesubject', card.labelName]">Sub Topics ({{ getSubtopicCount(card.labelName) }})</h6> 
+                                                    </div>
+                                                    <div>
+                                                        <i *ngIf="!card.isPublished" class="material-icons publish-icon delete-icon mr-5" (click)="publishCard(card._id)" title="Publish">publish</i>
+                                                        <i class="material-icons delete-icon" (click)="deleteCard(card._id, 'skill')" title="Delete">delete</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div> 
+
+
+        <div class="dashboard-footer pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-12 text-end">
+                        <button type="button" class="btn btn-primary grey-btn me-3">Cancel</button>
+                        <button type="button" class="btn btn-primary coloured-btn">Save</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+<script>
+    function showDropdown() {
+  document.getElementById("dropdownContent").style.display = "block";
+}
+</script>

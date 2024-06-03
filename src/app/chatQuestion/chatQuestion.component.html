@@ -1,0 +1,116 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+           
+            <div class="chat-wrap pe-lg-5 pe-md-2">
+               
+                <h3><span class="me-4"><i class="bi bi-arrow-left"></i></span>Ask Me </h3>
+
+                <div class="chat-section">
+                    <div class="row">
+                        <div class="col-xl-7 col-lg-9 offset-lg-3 offset-xl-5">
+                            <!-- <div class="chat-ques-name text-end fw-bold">You</div>
+                            <div class="chat-ques-time text-end"><small>10:45am , 10/08/2023</small></div> -->
+                            <div class="chat-ques  px-lg-4 px-md-2 px-2 py-3 mb-4">
+                                <!--Question should be displayed-->
+                                hello , what is your name?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-7 col-lg-9">
+                            <div class="chat-reply  px-lg-4 px-md-2 px-2 py-3 mb-4">
+                                <!--reply/answer for the question is displayed-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="input-group mb-3 query-sec px-lg-4 px-2 px-md-2 py-3">
+                    <input type="text" class="form-control bg-transparent border-0" placeholder="Type your query here"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-primary coloured-btn" type="button" id="button-addon2" onclick="askQuestion()">Ask</button>
+
+                </div>
+                <div class="unanswer-sec mb-3  px-lg-4 px-2 px-md-2 py-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-0 fw-bold">10 unanswered question</p>
+                            <p class="mb-0">Do you know the answer to these ?</p>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <button type="button" class="btn btn-primary coloured-btn">Yes Provide Answers <span><i
+                                        class="bi bi-chevron-right"></i></span></button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+        
+
+  <!--script code for the html-->
+  <script>
+   async function askQuestion() {
+    const questionInput = document.querySelector('.query-sec input');
+    const question = questionInput.value;
+
+    if (question.trim() !== '') {
+      const response = await fetch('/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question }),
+      });
+
+      if (response.ok) {
+        // Reload the page to update the chat
+        location.reload();
+      } else {
+        console.error('Failed to ask question');
+      }
+    }
+  }
+  
+    async function provideAnswer(index) {
+      const answerInput = document.getElementById(`answer-${index}`);
+      const answer = answerInput.value;
+  
+      if (answer.trim() !== '') {
+        const response = await fetch(`/answer/${index}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ answer }),
+        });
+  
+        if (response.ok) {
+          // Reload the page to update the chat
+          location.reload();
+        } else {
+          console.error('Failed to provide answer');
+        }
+      }
+    }
+  
+    // Fetch initial chat data
+    async function fetchChatData() {
+      const response = await fetch('/chat');
+      const data = await response.json();
+  
+      // Update the UI with fetched data
+      // (You can customize this part based on your UI structure)
+      console.log(data);
+    }
+  
+    // Call fetchChatData when the page loads
+    window.onload = fetchChatData;
+  </script>
+  
+  

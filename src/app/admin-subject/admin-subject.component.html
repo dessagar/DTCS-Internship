@@ -1,0 +1,271 @@
+<div class="page-wrapper">
+    <div class="sidebar position-relative">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="" class="navbar-brand my-4 ms-3"><img _ngcontent-upr-c1="" src="../assets/company-logo.png"
+                        alt="Company Logo"></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navigationBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- <div *ngIf="loginSuccess" class="alert alert-success" role="alert">
+                    Login successful..!
+                  </div> 
+                  <div *ngIf="loginError" class="alert alert-danger" role="alert">
+                    Login failed..!
+                </div>  -->
+
+
+                <div class="collapse navbar-collapse" id="navigationBar">
+                    <ul class="navbar-nav navigation-top-link">
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../Admin_dashboardComponent"><i class="bi bi-house-door me-3"></i><span>Dashboard</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link highlight-item" routerLink="../admin_subject"><i
+                                    class="bi bi-speedometer2  me-3"></i><span>Subject</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled" routerlink="../admin_subtopic"><i class="bi bi-bug  me-3"></i><span>Forum</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-grid  me-3"></i><span>Library</span> </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-people  me-3"></i><span>My Profile</span></a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../askme"><i class="bi bi-question-circle  me-3"></i><span>Ask me</span></a>
+                        </li>
+
+                        <!-- <li class="nav-item mb-2">
+                            <a href="#" class="nav-link" routerLink="../chatbot"><i class="bi bi-question-circle  me-3"></i><span>Chat</span></a>
+                        </li> -->
+
+                     
+
+                        <li class="nav-item mb-2">
+                            <a href="#" class="nav-link disabled"><i class="bi bi-gear  me-3"></i><span>Settings</span></a>
+                        </li>
+                     
+                    </ul>
+                  
+                </div>
+
+            </div>
+        </nav>
+    </div>
+<!--=====================================================================================================================================-->
+   
+    <div class="outer-content-wrapper">
+        <div class="top-header py-2 pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5 offset-md-7">
+                        <div class="d-flex">
+                            <div class="input-group me-3">
+                                <input type="text" class="form-control common-form-control" placeholder="Search Here">
+                                <button type="button" class="btn btn-primary search-btn"><i class="bi bi-search"></i></button>
+                            </div>
+
+                            <div class="list-group list-group-horizontal list-group-flush">
+                                <a class="list-group-item list-group-action me-2 px-3" href="#"><i class="bi bi-bell"></i></a>
+                                <a class="list-group-item list-group-action mx-2 px-3" href="#"><i class="bi bi-person"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="dashboard-fliter py-2 px-4">
+            <div class="container-fluid">
+                <div class="row mx-0 align-items-center">
+                    
+
+                    <div class="col-md-8">
+                        <div class="custom-dropdown">
+                            <button class="dropdown-toggle" id="dropdownMenuButton">{{ selectedItem }}</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" (click)="onSelectItem('iMedOne Knowledge')">iMedOne Knowledge</a>
+                                <a class="dropdown-item" (click)="onSelectItem('Skill Knowledge')">Skill Knowledge</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <button type="button" class="btn-e20086">Add Subject</button> -->
+                        <button type="button" class="btn-e20086" routerLink="../subjectform">Add Subject</button>
+
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+<!--========================================================================================================================================-->
+        <div class="inner-content-wrapper pt-4 pb-3 px-4">
+
+            <div class="container-fluid" *ngIf="selectedItem === 'Select'">
+                <div class="alert alert-info" role="alert">
+                 <strong>Please select parent module to view subjects.</strong> 
+                </div>
+              </div>
+
+            <div class="container-fluid" *ngIf="selectedItem === 'iMedOne Knowledge' || selectedItem === 'Skill Knowledge'" >
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+                <div class="row mx-0 ">
+                    
+                </div>
+                <div class="knowledge-wrapper pt-3">
+                    <div class="row mx-0">
+                      
+                            <div class="row">
+
+                                
+                           
+
+                                <!-- <div class="col-md-12">
+                                    <div class="card mb-3 py-2">
+                                        <div class="card-body">
+                                            <h5 class="card-title common-card-title mb-3" routerLink="../admin_subtopic">ISUS</h5>
+                                            <span class="edit-button"  routerLink="../admin_subtopic">Edit</span>                                                  -->
+                                            <!-- <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6> -->
+                                        <!-- </div>
+                                    </div>
+                                </div> -->
+
+                                <!-- Modify your HTML template to include dynamic rendering -->
+                            <div *ngFor="let item of formData" class="col-md-12">
+                                <div class="card mb-3 py-2">
+                                    <div class="card-body" [routerLink]="['../admin_subtopic', item.labelName]">
+                                        <h5 class="card-title common-card-title mb-3">{{ item.labelName }}</h5>
+                                        <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6>
+                                        <span class="edit-button">Edit</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div *ngFor="let item of formData | filterBySubject:selectedSubject" class="col-md-12">
+                                <div class="card mb-3 py-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title common-card-title mb-3">{{ item.labelName }}</h5>
+                                        <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6>
+                                        <span class="edit-button" routerLink="../admin_subtopic">Edit</span>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="col-md-12">
+                                <div class="card mb-3 py-2" routerLink="../imedOneFlow">
+                                    <div class="card-body" >                            
+                                        <h5 class="card-title common-card-title mb-3">iMedOne Overeview</h5>
+                                        <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                               
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="inner-content-wrapper pt-4 pb-3 px-4">
+    <div class="container-fluid" *ngIf="selectedItem === 'Skill Knowledge'">
+<div class="row">
+<div class="col-md-10 offset-md-1">
+        <div class="row mx-0 ">
+            
+        </div>
+        <div class="knowledge-wrapper pt-3">
+            <div class="row mx-0">
+
+                <!-- <div class="col-md-12">
+                    <div class="card mb-3 py-2">
+                        <div class="card-body">
+                                <h5 class="card-title common-card-title mb-3">C#</h5>
+                                <span class="edit-button">Edit</span>                                                 
+                        </div>
+                    </div>
+                </div>  -->
+<!--               
+                    <div class="row"> 
+                        
+                     <div class="col-md-12">
+                            <div class="card mb-3 py-2">
+                                <div class="card-body">
+                                        <h5 class="card-title common-card-title mb-3">C#</h5>
+                                        <span class="edit-button">Edit</span>                                                 
+                                    <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6>
+                                </div>
+                            </div>
+                    </div> 
+
+
+                        <div class="col-md-12">
+                            <div class="card mb-3 py-2">
+                                <div class="card-body">
+                                    <h5 class="card-title common-card-title mb-3">Angular</h5>
+                                    <span class="edit-button">Edit</span>                                                 
+                                    <h6 class="card-subtitle common-card-subtitle">Sub Topics(0)</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="card mb-3 py-2">
+                                <div class="card-body">
+                                    <h5 class="card-title common-card-title mb-3">Javascript</h5>
+                                    <span class="edit-button">Edit</span>                                                 
+                                    <h6 class="card-subtitle common-card-subtitle">Sub Topics(0)</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="card mb-3 py-2">
+                                <div class="card-body">
+                                    <h5 class="card-title common-card-title mb-3">Python</h5>
+                                    <span class="edit-button">Edit</span>                                                 
+                                    <h6 class="card-subtitle common-card-subtitle">Sub Topics(0)</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="card mb-3 py-2">
+                                <div class="card-body">
+                                    <h5 class="card-title common-card-title mb-3">Ruby</h5>
+                                    <span class="edit-button">Edit</span>                                                 
+                                    <h6 class="card-subtitle common-card-subtitle">Sub Topics(10)</h6>
+                                </div>
+                            </div>
+                        </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!--================================================================================================================================================-->
+        <div class="dashboard-footer pe-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-end">
+                        <button type="button" class="btn btn-primary grey-btn me-3">Cancel</button>
+                        <button type="button" class="btn btn-primary coloured-btn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
