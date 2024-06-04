@@ -3,7 +3,7 @@
 .knowledge-wrapper
 {
     height: calc(100vh - 270px);
-    // overflow-y: auto;
+    overflow-y: auto;
     .card
     {
         border: none;
@@ -66,8 +66,8 @@
 .containerbg{
     background-color: #fff;
     padding: 30px;
-    margin: 10px;
-    max-height: 691px;
+    // margin: 10px;
+    max-height: 650px;
     overflow: auto;
 
 }

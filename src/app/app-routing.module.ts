@@ -43,7 +43,7 @@ import { SlidercontentComponent } from './slidercontent/slidercontent.component'
 import { NewsliderComponent } from './newslider/newslider.component';
  
 const routes: Routes = [
-  {path:'',redirectTo:'/login',pathMatch:'full'},
+  {path:'',redirectTo:'/MasterAdminlogin',pathMatch:'full'},
   // { path: '#', redirectTo: '/signup' } ,
   {path:'MasterAdminlogin',component:LoginComponent},
   {path:'signup',component:SignupComponent},
