@@ -14,6 +14,8 @@ export class SubjectformComponent {
   description: string = '';
   showSuccessMessage: boolean = false;
   showPublishmessage: boolean = false;
+  showErrorMessage: boolean = false;
+  errorMessage: string = '';
 
   publishButtonDisabled: boolean = true;
   isSaveButtonDisabled: boolean = false;
@@ -45,6 +47,13 @@ export class SubjectformComponent {
       }, 3000); // Adjust the timeout as needed
     }, error => {
       console.error('Error saving data:', error);
+      this.showErrorMessage = true;
+      this.resetForm();
+      this.errorMessage = error.error.error || 'An error occurred while saving the data.';
+
+      setTimeout(() => {
+        this.showErrorMessage = false;
+      }, 4000);
     });
   }
 

@@ -983,18 +983,37 @@ app.put('/api/formData/publish/:id', async (req, res) => {
 
 
 
-
+//========================================================================================================
 // Create FormData
+// app.post('/subjectform', async (req, res) => {
+//   try {
+//       const { labelName, group, description } = req.body; 
+//       const formData = new FormData({ labelName, group, description }); 
+//       await formData.save();
+//       res.status(201).send(formData);
+//   } catch (error) {
+//       res.status(400).send(error);
+//   }
+// });
+//======================================================================================================
 app.post('/subjectform', async (req, res) => {
   try {
-      const { labelName, group, description } = req.body; // Change name to labelName
-      const formData = new FormData({ labelName, group, description }); // Change name to labelName
-      await formData.save();
-      res.status(201).send(formData);
+    const { labelName, group, description } = req.body;
+
+    // Check if a subject with the same name already exists
+    const existingSubject = await FormData.findOne({ labelName });
+    if (existingSubject) {
+      return res.status(400).send({ error: 'Subject name already exists, Try with Other Subject Name.' });
+    }
+
+    const formData = new FormData({ labelName, group, description });
+    await formData.save();
+    res.status(201).send(formData);
   } catch (error) {
-      res.status(400).send(error);
+    res.status(400).send(error);
   }
 });
+//======================================================================================================
 
 // Get all FormData
 app.get('/subjectform', async (req, res) => {
