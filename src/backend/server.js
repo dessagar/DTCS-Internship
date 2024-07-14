@@ -317,6 +317,10 @@ app.use(bodyParser.json());
 app.post('/updatepassword', async (req, res) => {
   const { name, password, confirmPassword } = req.body;
 
+  if (!name || !password || !confirmPassword) {
+    return res.status(400).json({ error: 'Please fill out all fields' });
+  }
+  
   if (password !== confirmPassword) {
     return res.status(400).json({ error: 'Passwords do not match' });
   }

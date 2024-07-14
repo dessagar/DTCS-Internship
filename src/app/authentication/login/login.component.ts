@@ -16,6 +16,8 @@ export class LoginComponent {
   };
   loginError = false;
   loginSuccess = false;
+  passwordError = false;
+
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -26,6 +28,20 @@ export class LoginComponent {
     //   {
     //     this.router.navigate(['/forgotPassword']);
     //   }
+
+    this.passwordError = false;
+
+    // Check if password field is empty
+    if (!this.user.password) {
+      this.passwordError = true;
+      return;
+    }
+
+    setTimeout(() => {
+      this.passwordError = false;
+      // this.router.navigate(['../Admin_dashboardComponent']);
+    }, 3000);
+
     console.log('Login Request Data:', this.user);
 
     

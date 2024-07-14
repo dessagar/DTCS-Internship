@@ -22,8 +22,15 @@ export class ForgotPasswordComponent {
     const password = (document.getElementById('pass') as HTMLInputElement).value;
     const confirmPassword = (document.getElementById('confirmpass') as HTMLInputElement).value;
   
+    if (!name || !password || !confirmPassword) {
+      this.error = 'Please fill out all fields';
+      this.message = '';
+      return;
+    }
+
     if (password !== confirmPassword) {
       this.error = 'Passwords do not match';
+      this.message = '';
       return;
     }
   
