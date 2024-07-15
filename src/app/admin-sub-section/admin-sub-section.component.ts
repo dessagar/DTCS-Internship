@@ -265,7 +265,9 @@ this.dataService.getRecentlyUploadedFilenames(labelName).subscribe(files => {
     }
   }
   
-
+  navigateToAdminDashboard(){
+    this.router.navigate(['/Admin_dashboardComponent']);
+  }
 
   // Function to get the file type based on the file extension
   getFileType(file: File): string {

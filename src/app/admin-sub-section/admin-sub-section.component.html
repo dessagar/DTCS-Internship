@@ -84,14 +84,13 @@
 
                   <div class="col-md-8">
                     <div class="col-md-8">
-                      <nav aria-label="breadcrumb">
-                          <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../Admin_dashboardComponent">Admin Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="../tilesubject/:labelName">Subject Details</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Subtopic</li>
-                          </ol>
-                        </nav>
+                      <button type="button" class="btn btn-primary me-3" style="background-color: #d0007a; border-color: transparent;"  (click)="navigateToAdminDashboard()">
+                          <span class="material-icons" style="color: white;">arrow_back</span>
+                      </button>
                   </div>
+                  
+                  
+                  
                   </div>
                   <div class="col-md-4">
                     <button id="datapreview" type="button" class="btn-e20086"  (click)="preview()" >Preview</button>
